@@ -1,0 +1,23 @@
+<odoo>
+    <record id="apps_extra_button" model="ir.ui.view">
+        <field name="name">apps.extra.button</field>
+        <field name="model">ir.module.module</field>
+        <field name="inherit_id" ref="base.module_view_kanban"/>
+        <field name="arch" type="xml">
+
+            <xpath expr="//kanban" position="before">
+                <button type="action"
+                        name="installed_apps_custom_button.action_dummy_click"
+                        string="Installed Apps"
+                        class="btn btn-primary mb-2"/>
+            </xpath>
+
+        </field>
+    </record>
+
+    <record id="action_dummy_click" model="ir.actions.act_url">
+        <field name="name">Installed Apps Placeholder</field>
+        <field name="url">/installed_apps_dashboard</field>
+        <field name="target">self</field>
+    </record>
+</odoo>

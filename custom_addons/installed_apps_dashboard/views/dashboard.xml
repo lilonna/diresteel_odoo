@@ -1,0 +1,50 @@
+<odoo>
+    <template id="template_dashboard" name="Installed Apps Dashboard Template">
+        <t t-call="web.layout">
+            <div class="p-4">
+                <h2 class="mb-4">Installed Applications</h2>
+                <a href="/web#menu_id=apps" class="btn btn-primary mb-3">
+                    Open Odoo Apps
+                </a>
+                <div class="row">
+                    <t t-foreach="modules" t-as="app">
+                        <div class="col-lg-3 col-md-4 col-sm-6 mb-3">
+                            <div class="card shadow-sm p-3 h-100">
+                                <h4 class="card-title">
+                                    <t t-esc="app.shortdesc"/>
+                                </h4>
+                                <p>
+                                    <t t-esc="app.summary or ''"/>
+                                </p>
+                                <a t-att-href="'/web#module=%s' % app.name"
+                                   class="btn btn-secondary btn-sm">
+                                    Open
+                                </a>
+                            </div>
+                        </div>
+                    </t>
+                    <div class="col-lg-3 col-md-4 col-sm-6 mb-3">
+                        <div class="card shadow-sm p-3 h-100 text-center bg-light">
+                            <h4>Apps</h4>
+                            <p>View and manage installed and available apps</p>
+                            <a href="/web#menu_id=apps" class="btn btn-primary btn-sm">
+                                Open Apps
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+
+    <record id="action_open_dashboard" model="ir.actions.act_url">
+        <field name="name">Installed Apps Dashboard</field>
+        <field name="url">/installed_apps_dashboard</field>
+        <field name="target">self</field>
+    </record>
+
+    <menuitem id="menu_installed_apps_dashboard"
+              name="Installed Apps Dashboard"
+              parent="base.menu_management"
+              action="action_open_dashboard"/>
+</odoo>

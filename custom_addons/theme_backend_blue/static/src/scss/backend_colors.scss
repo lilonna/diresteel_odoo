@@ -1,0 +1,30 @@
+$my-blue: #2A3E83;
+$my-red: #C43234;
+
+$o-brand-primary: $my-blue;
+$o-brand-odoo: $my-blue;
+
+.o_main_navbar {
+    background-color: $my-blue !important;
+}
+.o_menu_sections .o_nav_entry,
+.o_menu_sections .o_dropdown,
+.o_menu_sections .dropdown-toggle {
+    background-color: $my-blue !important;
+}
+
+.o_searchview {
+    border-color: $my-blue !important;
+}
+
+.btn-primary,
+.o_form_button_create,
+.o_list_button_add {
+    background-color: $my-blue !important;
+    border-color: $my-blue !important;
+}
+.o_menu_sections .o_nav_entry:hover,
+.o_menu_sections .dropdown-toggle:hover {
+    background-color: $my-red !important;
+}
+
