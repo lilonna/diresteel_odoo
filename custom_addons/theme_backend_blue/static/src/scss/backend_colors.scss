@@ -27,4 +27,16 @@ $o-brand-odoo: $my-blue;
 .o_menu_sections .dropdown-toggle:hover {
     background-color: $my-red !important;
 }
+.o_database_list a,
+.o_database_list .text-muted,
+.o_database_list small{
+     color: $my-blue !important; 
+}
+
+.o_database_list button[name="redirect"][value="/web/become"] {
+    color: $my-blue !important;   
+
+}
+
+
 

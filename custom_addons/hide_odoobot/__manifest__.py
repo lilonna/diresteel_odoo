@@ -1,5 +1,5 @@
 {
-    "name": "Hide OdooBot",
+    "name": "Hide Odoobot",
     "version": "1.0",
     "summary": "Removes OdooBot for all non-admin users",
     "category": "Tools",
@@ -7,7 +7,7 @@
     "license": "LGPL-3",
     "depends": ["base"],
     "data": [
-        "views/hide_odoo_bot.xml",
+        "views/hide_odoobot.xml",
     ],
     "installable": True,
     "application": False,

@@ -1,0 +1,9 @@
+<odoo>
+    <template id="remove_login_footer" inherit_id="web.login_layout">
+        <xpath expr="//div[contains(@class, 'text-center') and contains(@class, 'border-top')]//a[contains(@href, 'odoo.com')]" position="replace">
+            <a href="#" class="ps-2">
+                Dire Steel
+            </a>
+        </xpath>
+    </template>
+</odoo>
