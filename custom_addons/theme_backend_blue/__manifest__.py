@@ -2,7 +2,7 @@
     "name": "Backend Blue Theme",
     "version": "1.0",
     "category": "Theme",
-    "summary": "Force backend theme to blue",
+    "summary": "Force backend theme and frontend text colors to blue",
     "author": "lilo",
     "depends": ["web"],
     "assets": {
