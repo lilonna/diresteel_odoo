@@ -1,0 +1,12 @@
+<odoo>
+  <record id="product_inventory_form_inherit" model="ir.ui.view">
+    <field name="name">product.inventory.form.inherit</field>
+    <field name="model">product.product</field>
+    <field name="inherit_id" ref="product.product_normal_form_view"/>
+    <field name="arch" type="xml">
+      <xpath expr="//field[@name='standard_price']" position="after">
+        <field name="valuation" string="Cost Method"/>
+      </xpath>
+    </field>
+  </record>
+</odoo>

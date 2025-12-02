@@ -1,0 +1,13 @@
+<odoo>
+    <menuitem id="inventory_ext_root" name="Steel Inventory"/>
+
+    <menuitem id="inventory_batch_menu"
+              name="Batches"
+              parent="inventory_ext_root"
+              action="action_stock_batch"/>
+
+    <menuitem id="inventory_reorder_menu"
+              name="Reorder Rules"
+              parent="inventory_ext_root"
+              action="action_reorder_rule"/>
+</odoo>

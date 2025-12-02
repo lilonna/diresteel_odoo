@@ -1,0 +1,37 @@
+<odoo>
+  <record id="view_stock_batch_tree" model="ir.ui.view">
+    <field name="name">stock.batch.tree</field>
+    <field name="model">stock.batch</field>
+    <field name="arch" type="xml">
+      <tree>
+        <field name="item_id"/>
+        <field name="batch_no"/>
+        <field name="qty"/>
+        <field name="unit_cost"/>
+        <field name="warehouse_id"/>
+      </tree>
+    </field>
+  </record>
+
+  <record id="view_stock_batch_form" model="ir.ui.view">
+    <field name="name">stock.batch.form</field>
+    <field name="model">stock.batch</field>
+    <field name="arch" type="xml">
+      <form>
+        <group>
+          <field name="item_id"/>
+          <field name="batch_no"/>
+          <field name="qty"/>
+          <field name="unit_cost"/>
+          <field name="warehouse_id"/>
+        </group>
+      </form>
+    </field>
+  </record>
+
+  <record id="action_stock_batch" model="ir.actions.act_window">
+    <field name="name">Stock Batches</field>
+    <field name="res_model">stock.batch</field>
+    <field name="view_mode">tree,form</field>
+  </record>
+</odoo>
