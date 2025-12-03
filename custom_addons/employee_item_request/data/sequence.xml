@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="seq_employee_item_request" model="ir.sequence">
+        <field name="name">Employee Item Request</field>
+        <field name="code">employee.item.request</field>
+        <field name="prefix">REQ/</field>
+        <field name="padding">4</field>
+    </record>
+</odoo>

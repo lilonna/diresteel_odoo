@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <record id="view_employee_item_request_tree" model="ir.ui.view">
+    <field name="name">employee.item.request.tree</field>
+    <field name="model">employee.item.request</field>
+    <field name="arch" type="xml">
+      <tree>
+        <field name="name"/>
+        <field name="product_id"/>
+        <field name="product_uom_qty"/>
+        <field name="employee_id"/>
+        <field name="department_id"/>
+        <field name="state"/>
+        <field name="picking_id"/>
+      </tree>
+    </field>
+  </record>
+
+  <record id="view_employee_item_request_form" model="ir.ui.view">
+    <field name="name">employee.item.request.form</field>
+    <field name="model">employee.item.request</field>
+    <field name="arch" type="xml">
+      <form string="Employee Item Request">
+        <sheet>
+          <group>
+            <field name="name" readonly="1"/>
+            <!-- limit to storable products -->
+            <field name="product_id" domain="[('type','=','product')]"/>
+            <field name="product_uom_qty"/>
+            <field name="employee_id"/>
+            <field name="note"/>
+            <field name="state" readonly="1"/>
+            <field name="picking_id" readonly="1"/>
+          </group>
+        </sheet>
+        <footer>
+          <button string="Submit Request" type="object" name="action_request" class="btn-primary" attrs="{'invisible':[('state','!=','draft')]}"/>
+          <button string="Approve" type="object" name="action_approve" class="btn-success" groups="stock.group_stock_user,base.group_system" attrs="{'invisible':[('state','!=','requested')]}"/>
+          <button string="Mark Done" type="object" name="action_done" class="btn-primary" attrs="{'invisible':[('state','!=','approved')]}"/>
+          <button string="Cancel" type="object" name="action_cancel" class="btn-secondary" attrs="{'invisible':[('state','=','cancel')]}"/>
+        </footer>
+      </form>
+    </field>
+  </record>
+
+  <record id="action_employee_item_request" model="ir.actions.act_window">
+    <field name="name">Employee Item Requests</field>
+    <field name="res_model">employee.item.request</field>
+    <field name="view_mode">tree,form</field>
+  </record>
+
+  <menuitem id="menu_employee_item_requests"
+            name="Employee Item Requests"
+            parent="stock.menu_stock_root"
+            action="action_employee_item_request"
+            groups="employee_item_request.group_department_head_requester,stock.group_stock_user,base.group_system"/>
+</odoo>

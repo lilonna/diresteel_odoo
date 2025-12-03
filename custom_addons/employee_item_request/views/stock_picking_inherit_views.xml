@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <record id="view_picking_form_inherit_employee_field" model="ir.ui.view">
+    <field name="name">stock.picking.inherit.employee</field>
+    <field name="model">stock.picking</field>
+    <field name="inherit_id" ref="stock.view_picking_form"/>
+    <field name="arch" type="xml">
+      <sheet position="inside">
+        <group>
+          <field name="x_employee_id"/>
+        </group>
+      </sheet>
+    </field>
+  </record>
+</odoo>

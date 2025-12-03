@@ -12,11 +12,11 @@ Features:
     'license': "LGPL-3",
     'depends': ['stock', 'purchase', 'mrp', 'account'],
     'data': [
-        'security/ir.model.access.csv',
-        'views/menus.xml',
+        'security/ir.model.access.csv',      
         'views/batch_view.xml',
         'views/reorder_view.xml',
-        'views/product_inherit_view.xml'
+        'views/product_inherit_view.xml',
+        'views/menus.xml',
     ],
     'installable': True,
     'application': True

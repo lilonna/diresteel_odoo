@@ -1,0 +1,20 @@
+{
+    'name': 'Employee Item Request',
+    'version': '2.2.0',
+    'summary': 'Department-based item request and issuance workflow',
+    'description': 'Employees request items through their department heads. Inventory team approves and issues stock.',
+    'author': 'lilo',
+    'category': 'Inventory',
+    'depends': ['stock', 'hr'],
+    'data': [
+        'data/sequence.xml',
+        'data/stock_location_data.xml',
+        'security/security.xml',
+        'security/ir.model.access.csv',
+        'views/employee_request_views.xml',
+        'views/stock_picking_inherit_views.xml',
+    ],
+    'license': 'LGPL-3',
+    'installable': True,
+    'application': False,
+}
