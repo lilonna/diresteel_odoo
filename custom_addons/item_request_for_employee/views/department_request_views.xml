@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+  <record id="view_department_item_request_tree" model="ir.ui.view">
+    <field name="name">department.item.request.tree</field>
+    <field name="model">department.item.request</field>
+    <field name="arch" type="xml">
+      <tree>
+        <field name="name"/>
+        <field name="requested_by_user"/>
+        <field name="employee_id"/>
+        <field name="department_id"/>
+        <field name="state"/>
+        <field name="picking_id"/>
+      </tree>
+    </field>
+  </record>
+
+  <record id="view_department_item_request_form" model="ir.ui.view">
+    <field name="name">department.item.request.form</field>
+    <field name="model">department.item.request</field>
+    <field name="arch" type="xml">
+      <form string="Department Item Request">
+        <sheet>
+          <group>
+            <field name="name" readonly="1"/>
+            <field name="employee_id" domain="[(\'department_id.manager_id.user_id\', '=', uid)]"/>
+            <field name="department_id" readonly="1"/>
+            <field name="line_ids" attrs="{ 'readonly': [('state','not in', ('draft','requested'))] }">
+              <tree editable="bottom">
+                <field name="product_id"/>
+                <field name="quantity"/>
+              </tree>
+            </field>
+            <field name="note"/>
+          </group>
+          <group>
+            <field name="state" readonly="1"/>
+            <field name="picking_id" readonly="1"/>
+            <field name="issued_by_user_id" readonly="1"/>
+          </group>
+        </sheet>
+        <footer>
+          <button name="action_submit" string="Submit Request" type="object" class="btn-primary"
+                  attrs="{'invisible':[('state','!=','draft')]}"/>
+          <button name="action_approve" string="Approve (Confirm)" type="object" class="btn-success"
+                  groups="stock.group_stock_user,base.group_system"
+                  attrs="{'invisible':[('state','!=','requested')]}"/>
+          <button name="action_done" string="Mark Done" type="object" class="btn-primary"
+                  attrs="{'invisible':[('state','!=','approved')]}"/>
+          <button name="action_cancel" string="Cancel" type="object" class="btn-secondary"
+                  attrs="{'invisible':[('state','in',['cancelled','done'])]}"/>
+        </footer>
+      </form>
+    </field>
+  </record>
+
+  <record id="action_department_item_request_all" model="ir.actions.act_window">
+    <field name="name">Department Item Requests</field>
+    <field name="res_model">department.item.request</field>
+    <field name="view_mode">tree,form</field>
+    <field name="help" type="html">
+      <p class="o_view_nocontent_smiling_face">Create and manage department item requests here.</p>
+    </field>
+  </record>
+
+  <record id="action_department_item_request_my" model="ir.actions.act_window">
+    <field name="name">My Department Requests</field>
+    <field name="res_model">department.item.request</field>
+    <field name="view_mode">tree,form</field>
+    <field name="domain">[('department_id.manager_id.user_id','=', uid)]</field>
+  </record>
+
+  <menuitem id="menu_department_requests_root" name="Department Requests" sequence="10"/>
+  <menuitem id="menu_department_requests_my" name="My Requests" parent="menu_department_requests_root" action="action_department_item_request_my" groups="department_requests.group_department_head"/>
+  <menuitem id="menu_department_requests_dept" name="Department Requests" parent="menu_department_requests_root" action="action_department_item_request_all" groups="department_requests.group_department_head"/>
+  <menuitem id="menu_department_requests_all" name="All Requests" parent="menu_department_requests_root" action="action_department_item_request_all" groups="stock.group_stock_user,base.group_system"/>
+
+</odoo>

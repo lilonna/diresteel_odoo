@@ -1,15 +1,21 @@
-<?xml version="1.0" encoding="utf-8"?>
 <odoo>
   <data noupdate="1">
+
     <record id="group_department_head_requester" model="res.groups">
       <field name="name">Department Heads - Item Request</field>
       <field name="category_id" ref="base.module_category_inventory"/>
     </record>
+
     <record id="rule_request_department_filter" model="ir.rule">
-      <field name="name">Department-Based Request Visibility</field>
+      <field name="name">Dept-Based Request Visibility</field>
       <field name="model_id" ref="employee_item_request.model_employee_item_request"/>
       <field name="groups" eval="[(4, ref('employee_item_request.group_department_head_requester'))]"/>
-      <field name="domain_force">['|',('requested_by','=',user.id),('department_id','=', user.employee_id and user.employee_id.department_id and user.employee_id.department_id.id or False)]</field>
+      <field name="domain_force">
+        ['|',
+          ('requested_by','=',user.id),
+          ('department_id','=', user.employee_id and user.employee_id.department_id and user.employee_id.department_id.id or False)
+        ]
+      </field>
     </record>
 
   </data>

@@ -24,7 +24,6 @@
         <sheet>
           <group>
             <field name="name" readonly="1"/>
-            <!-- limit to storable products -->
             <field name="product_id" domain="[('type','=','product')]"/>
             <field name="product_uom_qty"/>
             <field name="employee_id"/>
@@ -33,11 +32,32 @@
             <field name="picking_id" readonly="1"/>
           </group>
         </sheet>
+
         <footer>
-          <button string="Submit Request" type="object" name="action_request" class="btn-primary" attrs="{'invisible':[('state','!=','draft')]}"/>
-          <button string="Approve" type="object" name="action_approve" class="btn-success" groups="stock.group_stock_user,base.group_system" attrs="{'invisible':[('state','!=','requested')]}"/>
-          <button string="Mark Done" type="object" name="action_done" class="btn-primary" attrs="{'invisible':[('state','!=','approved')]}"/>
-          <button string="Cancel" type="object" name="action_cancel" class="btn-secondary" attrs="{'invisible':[('state','=','cancel')]}"/>
+          <button string="Submit Request"
+                  type="object"
+                  name="action_request"
+                  class="btn-primary"
+                  invisible="state != 'draft'"/>
+
+          <button string="Approve"
+                  type="object"
+                  name="action_approve"
+                  class="btn-success"
+                  groups="stock.group_stock_user,base.group_system"
+                  invisible="state != 'requested'"/>
+
+          <button string="Mark Done"
+                  type="object"
+                  name="action_done"
+                  class="btn-primary"
+                  invisible="state != 'approved'"/>
+
+          <button string="Cancel"
+                  type="object"
+                  name="action_cancel"
+                  class="btn-secondary"
+                  invisible="state == 'cancel'"/>
         </footer>
       </form>
     </field>

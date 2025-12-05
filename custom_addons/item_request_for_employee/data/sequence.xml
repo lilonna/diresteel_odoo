@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <record id="seq_department_item_request" model="ir.sequence">
+    <field name="name">Department Item Request</field>
+    <field name="code">department.item.request</field>
+    <field name="prefix">REQ/</field>
+    <field name="padding">4</field>
+    <field name="implementation">no_gap</field>
+  </record>
+</odoo>

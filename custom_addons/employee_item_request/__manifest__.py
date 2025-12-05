@@ -1,9 +1,9 @@
 {
     'name': 'Employee Item Request',
-    'version': '2.2.0',
+    'version': '2.3.0',
     'summary': 'Department-based item request and issuance workflow',
-    'description': 'Employees request items through their department heads. Inventory team approves and issues stock.',
-    'author': 'lilo',
+    'description': 'Employees request items through their department heads. Inventory approves and issues stock.',
+    'author': 'Lilo',
     'category': 'Inventory',
     'depends': ['stock', 'hr'],
     'data': [
