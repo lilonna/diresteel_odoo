@@ -1,0 +1,17 @@
+<odoo>
+    <record id="view_employee_consumable_log_tree" model="ir.ui.view">
+        <field name="name">employee.consumable.log.tree</field>
+        <field name="model">employee.consumable.log</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="date"/>
+                <field name="employee_id"/>
+                <field name="department_id"/>
+                <field name="product_id"/>
+                <field name="quantity"/>
+                <field name="request_id"/>
+                <field name="picking_id"/>
+            </tree>
+        </field>
+    </record>
+</odoo>

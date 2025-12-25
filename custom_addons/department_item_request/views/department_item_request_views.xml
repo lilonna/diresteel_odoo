@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="view_department_item_request_tree" model="ir.ui.view">
+        <field name="name">department.item.request.tree</field>
+        <field name="model">department.item.request</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="employee_id"/>
+                <field name="department_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_department_item_request_form" model="ir.ui.view">
+        <field name="name">department.item.request.form</field>
+        <field name="model">department.item.request</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="department_id" readonly="1"/>
+                        <field name="employee_id"
+                           domain="[('department_id', 'child_of', department_id)]"/>
+                    </group>
+
+                    <group string="Requested Items">
+                        <field name="line_ids">
+                            <tree editable="bottom">
+                                <field name="product_id"/>
+                                <field name="quantity"/>
+                            </tree>
+                        </field>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_department_item_request" model="ir.actions.act_window">
+        <field name="name">Item Requests</field>
+        <field name="res_model">department.item.request</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_department_item_request_root"
+              name="Department Requests"
+              parent="hr.menu_hr_root"
+              sequence="90"/>
+
+    <menuitem id="menu_department_item_request"
+              name="Item Requests"
+              parent="menu_department_item_request_root"
+              action="action_department_item_request"
+              sequence="1"/>
+
+</odoo>

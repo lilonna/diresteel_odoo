@@ -1,0 +1,20 @@
+{
+    'name': 'Dpartment Requests',
+    'version': '1.0',
+    'category': 'Inventory',
+    'summary': 'Department Requests Menu Button Demo',
+    'depends': ['base', 'hr', 'product', 'stock'],
+    'data': [
+        'views/employee_asset_card_views.xml',
+        'views/employee_asset_return_wizard_view.xml',
+        'views/employee_consumable_log_views.xml',
+        'views/product_employee_issue_type_view.xml',
+        'security/groups.xml',
+        'security/ir.model.access.csv',
+        'views/department_item_request_views.xml',
+        'views/all_department_request_views.xml',                
+        'views/menu_home_button.xml',
+    ],
+    'installable': True,
+    'application': False,
+}

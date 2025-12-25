@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="action_department_item_request" model="ir.actions.act_window">
+        <field name="name">Department Requests</field>
+        <field name="res_model">department.item.request</field>
+        <field name="view_mode">tree,form</field>
+        <field name="target">current</field>
+        <field name="domain">[('create_uid','=', uid)]</field>
+    </record>
+
+    <record id="action_employee_consumable_log" model="ir.actions.act_window">
+        <field name="name">Employee Consumable Logs</field>
+        <field name="res_model">employee.consumable.log</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+
+    <menuitem 
+        id="menu_my_custom_app"
+        name="Department Requests"
+        action="action_department_item_request"
+        sequence="10"
+    />
+
+    <menuitem
+        id="menu_all_department_requests"
+        name="All Department Requests"
+        parent="stock.menu_stock_root"
+        action="action_all_department_item_requests"
+        sequence="50"
+        
+    />
+    
+    <menuitem 
+        id="menu_employee_consumable_log"
+        name="Employee Consumable Logs"
+        parent="stock.menu_stock_root"
+        action="action_employee_consumable_log"
+        sequence="65"
+    />
+
+
+</odoo>

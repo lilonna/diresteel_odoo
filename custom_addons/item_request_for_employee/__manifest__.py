@@ -1,5 +1,5 @@
 {
-    'name': 'Department Requests',
+    'name': 'Diartment Rquests',
     'version': '1.3.3',
     'summary': 'Department-level item request workflow with safe stock reservation',
     'description': 'Department heads request items for employees. Submitting reserves stock safely.',
@@ -7,10 +7,10 @@
     'category': 'Inventory',
     'depends': ['base', 'hr', 'stock', 'product'],
     'data': [
+        'security/security.xml',
+        'security/ir.model.access.csv',       
         'data/sequence.xml',
         'data/stock_location_data.xml',
-        'security/security.xml',
-        'security/ir.model.access.csv',
         'views/department_request_views.xml',
         'views/stock_picking_inherit_views.xml',
     ],

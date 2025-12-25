@@ -3,5 +3,4 @@
         <field name="name">Department Head</field>
         <field name="category_id" ref="base.module_category_inventory"/>
     </record>
-
 </odoo>
